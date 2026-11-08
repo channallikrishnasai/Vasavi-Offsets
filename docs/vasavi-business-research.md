@@ -15,16 +15,16 @@
 ## Customer feedback and ratings (platforms kept separate)
 
 - **Google:** Google’s live listing and its current aggregate rating/count could not be independently read by the research interface. The homepage therefore shows no Google rating or count. It links directly to a live Google Maps search and embeds a Google map view so visitors can open the listing themselves. No Places API credentials were supplied.
-- **Yappe directory snapshot:** the listing currently reports 4.5/5 from 84 reviews and shows historical review excerpts, but does not establish that this is Google’s current aggregate. Do not label these numbers or excerpts as Google data.
-- **Justdial snapshot:** Justdial’s invitation-card listing reports 4.5 from 125 ratings. This is a Justdial figure and is not shown as Google data. One publicly displayed Justdial review is attributed to Sheela, dated 21 June 2021, with a 5.0 individual review rating. The site quotes a short excerpt and links back to the Justdial source; it is explicitly labeled as Justdial.
+- **Yappe directory snapshot:** the listing currently reports 4.5/5 from 84 reviews and shows historical review excerpts, but does not establish that this is Google’s current aggregate. The rotating review component uses short excerpts from reviews publicly attributed there to Naga Shruthi Sonth, shweta bhoske and Vishal Yalwarkar. One excerpt records a colour mismatch complaint; it is retained for balanced representation. Do not label these numbers or excerpts as Google data.
+- **Justdial snapshot:** Justdial’s invitation-card listing reports 4.5 from 125 ratings. This is a Justdial figure and is not shown as Google data. One publicly displayed Justdial review is attributed to sheela, dated 21 June 2021, with a 5.0 individual review rating. The homepage displays a brief excerpt and links back to Justdial; it is explicitly labeled as Justdial.
 - **Justdial data quality:** other Justdial JDMart pages associate this seller with unrelated catalogue products (for example, T-shirts and generic printing machinery). Those product cards are not treated as evidence of Vasavi inventory, machinery, manufacturing specifications or services.
-- **Other public feedback:** Yappe displays historic wedding-card feedback, including both positive customization feedback and a complaint about an incorrect colour after revisions. These are third-party directory excerpts, not verified Google reviews; they are documented here but not presented as Vasavi testimonials on the homepage.
+- **Other public feedback:** the selected Yappe carousel excerpts include positive wedding-card customization feedback, a complaint about a colour mismatch after corrections, and a long-term customer’s positive feedback. These are third-party directory excerpts, not Google reviews; each is attributed to the public name and source.
 
 ## Conflicts and items needing owner confirmation
 
 | Item | Public records found | Treatment |
 |---|---|---|
-| Establishment year | Supplied poster says 1968–2016; Justdial and Yappe use 1968; Justdial says 58 years in its current snapshot | Keep “1968 listed · owner confirmation pending”; do not state an independently verified founding date |
+| Establishment year | Supplied poster says 1968–2016; Justdial and Yappe use 1968; Justdial says 58 years in its current snapshot | Homepage says “58-year print legacy · since 1968*” with an adjacent confirmation note. Confirm with owner before treating as verified |
 | Google rating/count | User brief previously supplied 4.5/85; Yappe reports 4.5/84; Justdial reports 4.5/125 (Justdial) | No Google number is hardcoded; each directory’s figures remain separate |
 | Postal code | Yappe/BharatiBiz show 585101; Justdial shows 585301 | Omit postal code pending confirmation |
 | Opening hours | Directory entries conflict and some contain malformed times | Do not publish hours |
@@ -46,5 +46,6 @@
 
 - The hero invitation image is temporary editorial photography, labeled as illustrative and not Vasavi work.
 - The “Our Work” filters show only the user-supplied Vasavi photographs and poster. The gallery describes them as business assets, not as a verified project portfolio.
+- Public review snippets auto-advance, identify the displayed names and source directory, link to the original listing, and can be paused or manually navigated. Autoplay is disabled for visitors who prefer reduced motion.
 - Category descriptions use the services poster and broad directory classifications without inventing materials, finishes, turnaround, machinery, prices or guarantees.
 - No Google rating/count, aggregate review schema, award, certification, verified hours or postal code is published.

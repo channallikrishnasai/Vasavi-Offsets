@@ -19,7 +19,7 @@ export default function HeroSection() {
       <div className="hero-shade" />
       <div className="hero-content section-shell">
         <motion.div initial={reduceMotion ? false : "hidden"} animate="visible" variants={{ visible: { transition: { staggerChildren: reduceMotion ? 0 : 0.12, delayChildren: reduceMotion ? 0 : 0.16 } } }}>
-          <motion.p className="eyebrow hero-kicker" variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: reduceMotion ? 0 : 0.5 }}>A printing house in Kalaburagi</motion.p>
+          <motion.p className="eyebrow hero-kicker" variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: reduceMotion ? 0 : 0.5 }}>A 58-year print legacy · since 1968*</motion.p>
           <h1 className="serif hero-title"><motion.span className="hero-title-line" variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: reduceMotion ? 0 : 0.65 }}>Every Impression</motion.span><motion.span className="hero-title-line" variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: reduceMotion ? 0 : 0.65 }}><em>Tells a Story.</em></motion.span></h1>
           <motion.p className="hero-desc" variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: reduceMotion ? 0 : 0.55 }}>From beautifully crafted wedding invitations to professional business printing, we bring your ideas to life through thoughtful design and quality craftsmanship.</motion.p>
           <motion.div className="hero-actions" variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: reduceMotion ? 0 : 0.55 }}>

@@ -32,7 +32,7 @@ export default function Home() {
         <div className="section-shell intro-grid">
           <div className="intro-label"><span className="eyebrow">Print & gifting in Kalaburagi</span></div>
           <p>Wedding cards · Digital prints · Flex prints · <span>Personalized gifts</span></p>
-          <div className="intro-location"><MapPin size={15} /><span>1968 listed · owner confirmation pending</span></div>
+          <div className="intro-location"><MapPin size={15} /><span><strong>58 years listed · since 1968*</strong><small className="legacy-confirmation">Year shown in supplied materials and listings; owner confirmation pending.</small></span></div>
         </div>
       </section>
 
@@ -69,7 +69,7 @@ export default function Home() {
 
       <section className="reviews-section section-pad" id="reviews">
         <div className="section-shell reviews-grid">
-          <Reveal><div><span className="eyebrow">Customer voices</span><h2 className="section-title">A little trust<br />goes a long way.</h2><p className="section-intro">Open the live Google Maps result for current Google ratings and reviews. Directory rating snapshots are kept separate and are not shown as Google data.</p><a className="inline-link" href="https://www.google.com/maps/search/?api=1&query=Vasavi+Offset+Printers+Since+1968%2C+Saraswati+Godam%2C+Kalaburagi" target="_blank" rel="noreferrer">Read All Google Reviews <ArrowUpRight size={15} /></a></div></Reveal>
+          <Reveal><div><span className="eyebrow">Customer voices</span><h2 className="section-title">Their words.<br />Their experience.</h2><p className="section-intro">A rotating selection of publicly posted reviews. Each quote keeps its public name and original directory attribution; open the source to read the full review.</p><a className="inline-link" href="https://www.google.com/maps/search/?api=1&query=Vasavi+Offset+Printers+Since+1968%2C+Saraswati+Godam%2C+Kalaburagi" target="_blank" rel="noreferrer">Read All Google Reviews <ArrowUpRight size={15} /></a></div></Reveal>
           <Reveal delay={0.1}><ReviewSummary /></Reveal>
         </div>
       </section>
