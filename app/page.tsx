@@ -1,57 +1,86 @@
 import Image from "next/image";
-import { ArrowDown, ArrowRight, ArrowUpRight, Check, MapPin, MessageCircle, MoveUpRight, Phone } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, MapPin, MessageCircle, MoveUpRight, Phone } from "lucide-react";
+import BusinessStructuredData from "@/components/BusinessStructuredData";
+import HeroSection from "@/components/HeroSection";
 import Navigation from "@/components/Navigation";
 import ReviewSummary from "@/components/ReviewSummary";
+import WorkGallery from "@/components/WorkGallery";
 import { Reveal } from "@/components/Reveal";
 
-// Temporary editorial photography only. Replace with approved Vasavi photography before launch.
-const photos = {
-  hero: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?auto=format&fit=crop&w=2000&q=85",
-  wedding: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=85",
-  print: "https://images.unsplash.com/photo-1504270997636-07ddfbd48945?auto=format&fit=crop&w=1000&q=85",
-  large: "https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1000&q=85",
-  gift: "https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=1000&q=85",
-  work1: "/images/vasavi-interior.jpg",
-  work2: "/images/vasavi-storefront.jpg",
-  work3: "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1000&q=85",
-  work4: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=85",
-};
 const categories = [
-  { n: "01", title: "Wedding invitations", text: "Set the tone for a celebration with a considered first impression.", photo: photos.wedding, alt: "Wedding table and floral details, editorial stock photograph" },
-  { n: "02", title: "Commercial printing", text: "Everyday essentials for your business, made with care and clarity.", photo: photos.print, alt: "Printed paper and stationery, editorial stock photograph" },
-  { n: "03", title: "Banners & large format", text: "Make your message visible, across spaces large and small.", photo: photos.large, alt: "Event installation, editorial stock photograph" },
-  { n: "04", title: "Personalized gifts", text: "Thoughtful details, made personal for the people who matter.", photo: photos.gift, alt: "Wrapped gifts and stationery, editorial stock photograph" },
+  { n: "01", title: "Wedding invitations", text: "Wedding cards and invitation printing are listed for Vasavi. Ask the team about formats and personalisation for your occasion.", photo: "/images/hero/wedding-stationery-placeholder.jpg", alt: "Illustrative wedding stationery photograph; not a Vasavi product", label: "Illustrative reference", className: "category-reference" },
+  { n: "02", title: "Commercial printing", text: "Digital prints and colour Xerox are named on the services poster supplied for Vasavi.", photo: "/images/gallery/vasavi-interior.jpg", alt: "Vasavi showroom interior with a sign reading Print Partner", label: "Vasavi photo", className: "" },
+  { n: "03", title: "Banners & large format", text: "Flex prints are listed on the services poster supplied for Vasavi.", photo: "/images/gallery/vasavi-storefront.jpg", alt: "Vasavi Offset Printers storefront and exterior sign", label: "Vasavi photo", className: "" },
+  { n: "04", title: "Personalized gifts", text: "Personalized, corporate and return gifts are listed on the services poster supplied for Vasavi.", photo: "/images/gallery/vasavi-showroom.jpg", alt: "Vasavi showroom with card and gift displays", label: "Vasavi photo", className: "" },
 ];
-const work = [
-  { title: "A welcoming space", type: "Vasavi showroom", photo: photos.work1, alt: "Vasavi Offset Printers showroom interior", wide: true },
-  { title: "Our home in Kalaburagi", type: "Vasavi storefront", photo: photos.work2, alt: "Vasavi Offset Printers storefront in Kalaburagi" },
-  { title: "Everyday, elevated", type: "Brand touchpoints", photo: photos.work3, alt: "Minimal interior detail, editorial stock photograph" },
-  { title: "Made to be kept", type: "Personalized pieces", photo: photos.work4, alt: "Carefully crafted personal item, editorial stock photograph" },
-];
+
 const process = [
-  { n: "01", title: "Tell us what you have in mind", text: "Share your brief, reference, quantity and timeline. A sketch or a few words is a good place to start.", icon: MessageCircle },
-  { n: "02", title: "We’ll work through the details", text: "We’ll discuss suitable formats, paper and finishing, then confirm scope and an estimate with you.", icon: MoveUpRight },
-  { n: "03", title: "Review, approve, print", text: "We’ll confirm the final artwork with you before production begins, then coordinate collection or delivery details.", icon: Check },
+  { n: "01", title: "Discover", text: "Tell us what you are planning and which kind of printing or product you have in mind.", icon: MessageCircle },
+  { n: "02", title: "Customize", text: "Discuss available formats and the wording or personalisation details for your request.", icon: MoveUpRight },
+  { n: "03", title: "Approve", text: "Confirm the artwork, spelling and order details with the team before production begins.", icon: Check },
+  { n: "04", title: "Produce", text: "Once the scope and estimate are agreed, the team can confirm production timing and next steps.", icon: ArrowRight },
 ];
+
 export default function Home() {
-  return <><Navigation/><main id="top">
-    <section className="hero"><div className="hero-image"><Image src={photos.hero} alt="Artful stationery and fine paper, editorial stock photograph" fill priority sizes="100vw" unoptimized/></div><div className="hero-shade"/><div className="hero-content section-shell"><Reveal><p className="eyebrow hero-kicker">A printing house in Kalaburagi</p><h1 className="serif">Every impression<br/><em>tells a story.</em></h1><p className="hero-desc">From beautifully crafted wedding invitations to professional business printing, we bring your ideas to life through thoughtful design and quality craftsmanship.</p><div className="hero-actions"><a className="button button-light" href="#specialties">Explore our collection <ArrowRight size={15}/></a><a className="hero-text-link" href="#contact">Request a quote <ArrowUpRight size={15}/></a></div></Reveal></div><a className="hero-scroll" href="#intro"><span>Scroll to discover</span><ArrowDown size={15}/></a><div className="hero-caption">Thoughtfully made, since 1968*</div></section>
+  return <>
+    <BusinessStructuredData />
+    <Navigation />
+    <main id="top">
+      <HeroSection />
 
-    <section className="intro-strip" id="intro"><div className="section-shell intro-grid"><div className="intro-label"><span className="eyebrow">Good work leaves a mark</span></div><p>Ideas become objects. <span>Objects become part of your story.</span></p><div className="intro-location"><MapPin size={15}/><span>Kalaburagi, Karnataka</span></div></div></section>
+      <section className="intro-strip" id="intro" aria-label="Vasavi business details">
+        <div className="section-shell intro-grid">
+          <div className="intro-label"><span className="eyebrow">Print & gifting in Kalaburagi</span></div>
+          <p>Wedding cards · Digital prints · Flex prints · <span>Personalized gifts</span></p>
+          <div className="intro-location"><MapPin size={15} /><span>1968 listed · owner confirmation pending</span></div>
+        </div>
+      </section>
 
-    <section className="specialties section-pad" id="specialties"><div className="section-shell"><Reveal><div className="section-heading"><div><span className="eyebrow">Made for your moment</span><h2 className="section-title">A little more thought<br/>in every detail.</h2></div><p className="section-intro">From the first sketch to the finished piece, we help bring your ideas onto paper and into the world.</p></div></Reveal><div className="category-grid">{categories.map((c,i)=><Reveal key={c.n} delay={i*.08}><a className="category-card" href="#contact"><div className="category-image image-frame"><Image src={c.photo} alt={c.alt} fill sizes="(max-width: 700px) 85vw, (max-width: 1000px) 45vw, 25vw" unoptimized/><span className="image-index">{c.n}</span><span className="category-arrow"><ArrowUpRight size={19}/></span></div><div className="category-copy"><h3 className="serif">{c.title}</h3><p>{c.text}</p></div></a></Reveal>)}</div></div></section>
+      <section className="specialties section-pad" id="specialties">
+        <div className="section-shell">
+          <Reveal><div className="section-heading"><div><span className="eyebrow">Made for your moment</span><h2 className="section-title">A little more thought<br />in every detail.</h2></div><p className="section-intro">Explore the printing and gifting categories shown in Vasavi’s business materials, then get in touch to discuss your brief.</p></div></Reveal>
+          <p className="category-image-note">Business photographs are labeled. Invitation photography is illustrative and is not a Vasavi product.</p>
+          <div className="category-grid">{categories.map((category, index) => <Reveal key={category.n} delay={index * 0.07}>
+            <article className="category-card">
+              <div className={`category-image image-frame ${category.className}`}>
+                <Image src={category.photo} alt={category.alt} fill sizes="(max-width: 700px) 85vw, (max-width: 1000px) 45vw, 25vw" />
+                <span className="image-index">{category.n}</span><span className="category-photo-label">{category.label}</span>
+                <span className="category-arrow" aria-hidden="true"><ArrowUpRight size={19} /></span>
+              </div>
+              <div className="category-copy"><h3 className="serif">{category.title}</h3><p>{category.text}</p><a className="category-explore" href="#contact">Explore <ArrowRight size={13} /></a></div>
+            </article>
+          </Reveal>)}</div>
+        </div>
+      </section>
 
-    <section className="work-section section-pad" id="work"><div className="section-shell"><Reveal><div className="section-heading"><div><span className="eyebrow">A few things we love</span><h2 className="section-title">The beauty is<br/>in the making.</h2></div><p className="section-intro">A glimpse of our space, alongside a little visual inspiration.<br/><span className="stock-note">Stock images are illustrative; they are not Vasavi work.</span></p></div></Reveal><div className="work-grid">{work.map((w,i)=><Reveal key={w.title} delay={i*.07}><a className={`work-card ${w.wide?"work-wide":""}`} href="#contact"><div className="work-image image-frame"><Image src={w.photo} alt={w.alt} fill sizes={w.wide?"(max-width: 800px) 100vw, 55vw":"(max-width: 800px) 50vw, 30vw"} unoptimized/><span className="work-arrow"><ArrowUpRight size={17}/></span></div><div className="work-caption"><div><span>{w.type}</span><h3>{w.title}</h3></div><ArrowRight size={15}/></div></a></Reveal>)}</div><p className="gallery-disclaimer">The showroom and storefront photographs were provided by Vasavi. Other photography is illustrative only.</p></div></section>
+      <section className="work-section section-pad" id="work">
+        <div className="section-shell">
+          <Reveal><div className="section-heading"><div><span className="eyebrow">A look inside Vasavi</span><h2 className="section-title">Our place.<br />Our print story.</h2></div><p className="section-intro">Browse the business photographs and services poster supplied for this site. Only Vasavi-provided assets appear in this gallery.</p></div></Reveal>
+          <WorkGallery />
+        </div>
+      </section>
 
-    <section className="about-section section-pad" id="about"><div className="section-shell about-grid"><Reveal><div className="about-photo image-frame"><Image src="/images/vasavi-showroom.jpg" alt="Vasavi Offset Printers showroom, provided by the business" fill sizes="(max-width:800px) 100vw, 50vw" unoptimized/><div className="photo-note">Visit us in Kalaburagi</div></div></Reveal><Reveal delay={.12}><div className="about-copy"><span className="eyebrow">The Vasavi difference</span><h2 className="section-title">Made with care.<br/><em>Made to matter.</em></h2><p className="about-lede">A good print is more than ink on paper. It’s the feeling of something made just for you.</p><p className="section-intro">At Vasavi Offset Printers, we believe the details deserve attention. We take time to understand what you’re making and help you find the right way to bring it to life.</p><div className="value-list"><div><span>01</span><p><strong>Personal attention</strong><small>A real conversation about what you need.</small></p></div><div><span>02</span><p><strong>Care in the details</strong><small>Thoughtful choices from layout to finish.</small></p></div><div><span>03</span><p><strong>Rooted in Kalaburagi</strong><small>A local team, here to help make it happen.</small></p></div></div><a className="inline-link" href="#contact">Get to know us <ArrowRight size={15}/></a></div></Reveal></div></section>
+      <section className="about-section section-pad" id="about">
+        <div className="section-shell about-grid">
+          <Reveal><div className="about-photo image-frame"><Image src="/images/gallery/vasavi-showroom.jpg" alt="Vasavi showroom with invitation and gift displays, photograph supplied for this website" fill sizes="(max-width:800px) 100vw, 50vw" /><div className="photo-note">Visit us in Kalaburagi</div></div></Reveal>
+          <Reveal delay={0.12}><div className="about-copy"><span className="eyebrow">The Vasavi difference</span><h2 className="section-title">Craftsmanship that<br /><em>makes an impression.</em></h2><p className="about-lede">A local printing and gifting business with a range grounded in cards, prints and personalized products.</p><p className="section-intro">Vasavi’s supplied services poster lists invitation and wedding cards, digital and flex prints, colour Xerox, and personalized, corporate and return gifts. A public Justdial review also describes help with a store request; see its source and date in the review section.</p><div className="value-list"><div><span>01</span><p><strong>Personalized options</strong><small>Personalized gifts are listed in Vasavi’s supplied service material.</small></p></div><div><span>02</span><p><strong>Cards and print services</strong><small>Wedding cards, digital prints and flex prints are listed offerings.</small></p></div><div><span>03</span><p><strong>Rooted in Kalaburagi</strong><small>Visit or call to discuss the details of your request.</small></p></div></div><a className="inline-link" href="#contact">Talk to our team <ArrowRight size={15} /></a></div></Reveal>
+        </div>
+      </section>
 
-    <section className="reviews-section section-pad" id="reviews"><div className="section-shell reviews-grid"><Reveal><div><span className="eyebrow">A good word travels</span><h2 className="section-title">A little trust<br/>goes a long way.</h2><p className="section-intro">See what customers have shared about their experience with Vasavi on Google.</p><a className="inline-link" href="https://www.google.com/search?q=Vasavi+Offset+Printers+Kalaburagi+reviews" target="_blank" rel="noreferrer">Visit us on Google <ArrowUpRight size={15}/></a></div></Reveal><Reveal delay={.1}><ReviewSummary/></Reveal></div></section>
+      <section className="reviews-section section-pad" id="reviews">
+        <div className="section-shell reviews-grid">
+          <Reveal><div><span className="eyebrow">Customer voices</span><h2 className="section-title">A little trust<br />goes a long way.</h2><p className="section-intro">Open the live Google Maps result for current Google ratings and reviews. Directory rating snapshots are kept separate and are not shown as Google data.</p><a className="inline-link" href="https://www.google.com/maps/search/?api=1&query=Vasavi+Offset+Printers+Since+1968%2C+Saraswati+Godam%2C+Kalaburagi" target="_blank" rel="noreferrer">Read All Google Reviews <ArrowUpRight size={15} /></a></div></Reveal>
+          <Reveal delay={0.1}><ReviewSummary /></Reveal>
+        </div>
+      </section>
 
-    <section className="process-section section-pad" id="approach"><div className="section-shell"><Reveal><div className="process-heading"><span className="eyebrow">From first hello to finished piece</span><h2 className="section-title">Good things begin<br/>with a conversation.</h2><p className="section-intro">Here’s how we’ll bring your idea from the first conversation to a finished piece.</p></div></Reveal><div className="process-grid">{process.map((item,i)=><Reveal key={item.n} delay={i*.1}><article className="process-card"><div className="process-top"><span>{item.n}</span><item.icon size={21} strokeWidth={1.4}/></div><h3 className="serif">{item.title}</h3><p>{item.text}</p></article></Reveal>)}</div></div></section>
+      <section className="process-section section-pad" id="approach">
+        <div className="section-shell"><Reveal><div className="process-heading"><span className="eyebrow">From first hello to finished piece</span><h2 className="section-title">Good things begin<br />with a conversation.</h2><p className="section-intro">A simple conversation helps confirm the right scope before work begins. Artwork and order details should be confirmed directly with the team.</p></div></Reveal><div className="process-grid process-grid-four">{process.map((item, index) => <Reveal key={item.n} delay={index * 0.07}><article className="process-card"><div className="process-top"><span>{item.n}</span><item.icon size={21} strokeWidth={1.4} /></div><h3 className="serif">{item.title}</h3><p>{item.text}</p></article></Reveal>)}</div></div>
+      </section>
 
-    <section className="contact-section" id="contact"><div className="contact-texture"/><div className="section-shell contact-inner"><Reveal><span className="eyebrow">Have something in mind?</span><h2 className="serif">Let’s make it<br/><em>mean something.</em></h2><p>Tell us what you’re thinking. We’d love to hear about it.</p><div className="contact-actions"><a className="button button-light" href="tel:+919845281115"><Phone size={15}/> Call +91 98452 81115</a><a className="button button-contact-outline" href="https://wa.me/919845281115" target="_blank" rel="noreferrer"><MessageCircle size={15}/> WhatsApp us</a></div></Reveal></div><span className="contact-decoration serif">V</span></section>
-  </main>
+      <section className="contact-section" id="contact"><div className="contact-texture" /><div className="section-shell contact-inner"><Reveal><span className="eyebrow">Have something in mind?</span><h2 className="serif">Good things begin<br /><em>with a conversation.</em></h2><p>Have a printing project in mind? Let’s bring your ideas to life.</p><div className="contact-actions"><a className="button button-light" href="https://wa.me/919845281115" target="_blank" rel="noreferrer"><MessageCircle size={15} /> Start a Quote on WhatsApp</a><a className="button button-contact-outline" href="tel:+919845281115"><Phone size={15} /> Talk to Our Team</a></div></Reveal></div><span className="contact-decoration serif" aria-hidden="true">V</span></section>
+    </main>
 
-  <footer className="footer"><div className="section-shell"><div className="footer-main"><div className="footer-brand"><a className="brand brand-footer" href="#top"><span className="brand-mark">V</span><span><strong>VASAVI</strong><small>OFFSET PRINTERS</small></span></a><p>Thoughtful printing and creative solutions, rooted in Kalaburagi.</p><span className="footer-since">*Establishment year listed as 1968 — owner confirmation pending.</span></div><div className="footer-column"><span className="eyebrow">Explore</span><a href="#specialties">What we do</a><a href="#work">Selected inspiration</a><a href="#about">About Vasavi</a><a href="#reviews">Google reviews</a></div><div className="footer-column"><span className="eyebrow">Get in touch</span><a href="tel:+919845281115">+91 98452 81115</a><span>Kalaburagi, Karnataka, India</span><a href="https://maps.google.com/?q=Vasavi+Offset+Printers+Kalaburagi" target="_blank" rel="noreferrer">Find us on Google Maps <ArrowUpRight size={13}/></a></div><div className="footer-cta"><span className="eyebrow">Your idea starts here</span><a className="footer-circle" href="#contact" aria-label="Start a conversation"><ArrowUpRight/></a></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Vasavi Offset Printers</span><span>Made with care in Kalaburagi</span><a href="#top">Back to top ↑</a></div></div></footer>
+    <footer className="footer"><div className="section-shell"><div className="footer-main"><div className="footer-brand"><a className="brand brand-footer" href="#top"><span className="brand-mark">V</span><span><strong>VASAVI</strong><small>OFFSET PRINTERS</small></span></a><p>Printing, invitation cards and personalized gifts in Kalaburagi.</p><span className="footer-since">The 1968 establishment year appears on supplied business material and directory listings; owner confirmation is pending.</span></div><div className="footer-column"><span className="eyebrow">Products</span><a href="#specialties">Wedding invitations</a><a href="#specialties">Commercial printing</a><a href="#specialties">Banners & flex prints</a><a href="#specialties">Personalized gifts</a><a href="#work">Our work</a></div><div className="footer-column"><span className="eyebrow">Contact</span><a href="tel:+919845281115">+91 98452 81115</a><span>Saraswati Godam, near Gurudwara<br />Kalaburagi, Karnataka, India</span><a href="https://www.google.com/maps/search/?api=1&query=Vasavi+Offset+Printers+Since+1968%2C+Saraswati+Godam%2C+Kalaburagi" target="_blank" rel="noreferrer">Google Maps location <ArrowUpRight size={13} /></a><a href="https://wa.me/919845281115" target="_blank" rel="noreferrer">WhatsApp <ArrowUpRight size={13} /></a></div><div className="footer-cta"><span className="eyebrow">Your idea starts here</span><a className="footer-circle" href="#contact" aria-label="Start a conversation"><ArrowUpRight /></a></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Vasavi Offset Printers</span><span>Made with care in Kalaburagi</span><a href="#top">Back to top ↑</a></div></div></footer>
   </>;
 }

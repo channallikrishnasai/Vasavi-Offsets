@@ -1,8 +1,42 @@
 "use client";
-import { useState } from "react";
-import { Menu, X, ArrowUpRight } from "lucide-react";
-const links = [{ label: "Our work", href: "#work" }, { label: "Specialties", href: "#specialties" }, { label: "Our approach", href: "#approach" }, { label: "About us", href: "#about" }];
+
+import { useEffect, useState } from "react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
+
+const links = [
+  { label: "Home", href: "#top" },
+  { label: "Products", href: "#specialties" },
+  { label: "Our work", href: "#work" },
+  { label: "About us", href: "#about" },
+  { label: "Contact", href: "#contact" },
+];
+
 export default function Navigation() {
   const [open, setOpen] = useState(false);
-  return <header className="nav"><div className="nav-inner section-shell"><a className="brand" href="#top" aria-label="Vasavi Offset Printers home"><span className="brand-mark">V</span><span><strong>VASAVI</strong><small>OFFSET PRINTERS</small></span></a><nav className={`nav-links ${open ? "is-open" : ""}`} aria-label="Main navigation">{links.map(l => <a key={l.href} onClick={() => setOpen(false)} href={l.href}>{l.label}</a>)}<a className="nav-mobile-cta" onClick={() => setOpen(false)} href="#contact">Let’s talk <ArrowUpRight size={14}/></a></nav><a className="nav-cta" href="#contact">Start a conversation <ArrowUpRight size={14}/></a><button className="menu-toggle" onClick={() => setOpen(!open)} aria-label={open ? "Close navigation menu" : "Open navigation menu"} aria-expanded={open}>{open ? <X/> : <Menu/>}</button></div></header>;
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const updateScrollState = () => setScrolled(window.scrollY > 12);
+    const closeOnEscape = (event: KeyboardEvent) => { if (event.key === "Escape") setOpen(false); };
+    updateScrollState();
+    window.addEventListener("scroll", updateScrollState, { passive: true });
+    window.addEventListener("keydown", closeOnEscape);
+    return () => {
+      window.removeEventListener("scroll", updateScrollState);
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, []);
+
+  const closeMenu = () => setOpen(false);
+
+  return <header className={`nav ${scrolled ? "is-scrolled" : ""}`}>
+    <div className="nav-inner section-shell">
+      <a className="brand" href="#top" aria-label="Vasavi Offset Printers home" onClick={closeMenu}><span className="brand-mark">V</span><span><strong>VASAVI</strong><small>OFFSET PRINTERS</small></span></a>
+      <nav id="main-navigation" className={`nav-links ${open ? "is-open" : ""}`} aria-label="Main navigation">
+        {links.map(link => <a key={link.href} onClick={closeMenu} href={link.href}>{link.label}</a>)}
+      </nav>
+      <a className="nav-cta" href="#contact">Request a Quote <ArrowUpRight size={14} /></a>
+      <button className="menu-toggle" type="button" onClick={() => setOpen(value => !value)} aria-label={open ? "Close navigation menu" : "Open navigation menu"} aria-expanded={open} aria-controls="main-navigation">{open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}</button>
+    </div>
+  </header>;
 }
